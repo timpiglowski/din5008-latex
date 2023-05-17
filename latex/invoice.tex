@@ -1,0 +1,70 @@
+\documentclass[version=last,paper=A4,foldmarks=true,fontsize=12pt,parskip=full,fromalign=right,
+	fromphone=true,
+	fromfax=false,
+	fromemail=true,
+	fromurl=false,
+]{scrlttr2}
+
+\usepackage{style} % DIN5008 style
+\definecolor{light-gray}{gray}{0.9} % Gray color for the table
+
+\input{author}
+\input{footer}
+
+\begin{document}
+
+% Date
+\setkomavar{date}{\today}
+% Headline
+\setkomavar{subject}{\lang{english}{Invoice No. RE-}{Rechnung Nr. RE-}00XX}
+
+%\setkomavar{customer}[\customername]{DE-112233}
+\setkomavar{yourref}[\yourrefname]{REF NUMBER}
+%\setkomavar{yourmail}[\yourmailname]{1. April 2018}
+
+% Recipient
+\begin{letter}{
+    Muster GmbH\\
+    Gewerbestraße 9\\
+    98765 Musterstadt
+}
+
+% Comment line below to switch to German
+\selectlanguage{english}
+
+% Don't change, blindtext
+\opening{\lang{english}{To Whom It May Concern:}{Sehr geehrte Damen und Herren,}}
+
+\lang{english}{thank you very much for the good cooperation, it was a pleasure to do business with you.}{vielen Dank für die angenehme Zusammenarbeit. Hiermit stelle ich Ihnen die folgenden Leistungen in Rechnung:}
+
+\begin{smalltab}{\textwidth}{sXbbb}
+    \rowcolor{light-gray}\textbf{\lang{english}{Item}{Pos.}} & \textbf{\lang{english}{Description}{Beschreibung}} & \textbf{\lang{english}{Quantity}{Anzahl}} & \textbf{\lang{english}{Unit price}{Einzelpreis}} & \textbf{\lang{english}{Total price}{Gesamt}}\\
+
+    %ZAHL & FIRMA: JOB TITEL   & X days & TAGESSATZ € & GESAMT \\
+    %     & DATUM - REF NUMBER &        &             & \\
+    
+    1 & \textbf{Musterfirma: Auftrag}  & 1 day & 1000,00 € & 1000,00 € \\
+         & 06.04.2023 &        &             & \\
+    \rowcolor{light-gray}\multicolumn{4}{l}{\lang{english}{Total (net)}{Gesamtbetrag (netto)}} & 1000,00 €\\
+    \multicolumn{5}{l}{\lang{english}{All prices are excluding tax (small entrepreneurs).}{Umsatzsteuerfreie Leistungen gemäß §19 UStG.}}\\
+    \rowcolor{light-gray}\multicolumn{4}{l}{\textbf{\lang{english}{Total (gross)}{Gesamtbetrag (brutto)}}} & \textbf{1000,00 €}
+\end{smalltab}
+
+\lang{english}{Kindly pay the stated sum within 30 days to the bank account below,  including the invoice number.}{Bitte überweisen Sie den Rechnungsbetrag binnen 30 Tagen unter Angabe der Rechnungsnummer auf das unten angegebene Konto.}
+
+\closing{\lang{english}{Yours sincerely,}{Mit freundlichen Grüßen}}
+%\ps PS: TEXT.
+
+% Attachments:
+%\setkomavar*{enclseparator}{\lang{english}{Attachment(s)}{Anlage(n)}}
+%\encl{Taxi receipts}
+
+% Mailing List:
+%\cc{Party A, Party B}
+
+%Receipt from A to B:\\
+%\includegraphics[max height=5cm]{receipt1.jpg}
+
+\end{letter}
+
+\end{document}

@@ -1,0 +1,36 @@
+\usepackage[utf8]{inputenc}
+
+\usepackage[scaled]{helvet}
+\renewcommand\familydefault{\sfdefault} 
+\usepackage[T1]{fontenc}
+
+\usepackage[english, ngerman]{babel}
+
+\KOMAoptions{enlargefirstpage} % More Spaceo on the first page
+
+\setplength{foldmarkthickness}{1pt}
+
+\usepackage[hidelinks]{hyperref} % Don't show links
+
+% Language
+\usepackage{iflang}
+\newcommand{\lang}{\IfLanguageName}
+
+% Table
+% invoice.tex only
+\usepackage{tabularx} % Auto-width
+\newenvironment{smalltab}{\par\small\tabularx}{\endtabularx} % small font
+
+\newcolumntype{s}{>{\hsize=.1375\hsize}X} % custom table columns
+\newcolumntype{b}{>{\hsize=.275\hsize}X}
+
+\renewcommand{\arraystretch}{1.25} % higher rows
+
+\usepackage{tabularx,colortbl} % gray rows
+
+% Signature
+\renewcommand*{\raggedsignature}{\raggedright} % Signature aligned left
+\setplength{sigbeforevskip}{1em} % no whitespace infront of signature
+\usepackage{svg} % svg file in signature
+
+\usepackage[export]{adjustbox}% 'export' allows adjustbox keys in \includegraphics

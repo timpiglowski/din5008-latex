@@ -1,0 +1,43 @@
+\usepackage[footsepline,plainfootsepline]{scrlayer-scrpage}
+
+% Page numbering
+\renewcommand*\pagemark{%
+  \usekomafont{pagenumber}{\pagename~\thepage~\lang{english}{of}{von}~\letterlastpage}%
+}
+
+\KOMAoptions{footwidth=\useplength{firstfootwidth}}
+\ForEachLayerOfPageStyle*{plain.scrheadings}{%
+  \Ifstrstart{#1}{plain.scrheadings.foot}{%
+    \ModifyLayer[
+      voffset={\useplength{firstfootvpos}-1em}
+    ]{#1}
+  }{}
+}% shift the footer down
+\addtokomafont{pagefoot}{\normalfont\footnotesize}
+\clearpairofpagestyles
+\cfoot*{
+  \tiny
+  \parbox[t]{.24\textwidth}{\raggedright
+    \usekomavar{fromname}\\
+    \usekomavar{fromaddress}
+  }
+  \parbox[t]{.24\textwidth}{\raggedright
+    \lang{english}{Phone}{Tel.}: \usekomavar{fromphone}\\
+    \lang{english}{Mail}{E-Mail.}: \usekomavar{fromemail}\\
+    Web: \usekomavar{fromurl}
+  }
+  \parbox[t]{.24\textwidth}{\raggedright
+    \lang{english}{Tax-No}{Steuer-Nr}.: 11/222/33333\\
+    \lang{english}{Owner}{Inhaber}: Max Mustermann
+  }
+  \parbox[t]{.24\textwidth}{\raggedright
+    Bank name\\
+    DE11 2222 3333 4444 5555 66\\
+    MUSTBIC123
+  }
+  \pagemark
+}
+
+\pagestyle{plain}
+\usepackage{xpatch}
+\xapptocmd\opening{\thispagestyle{plain}}{}{}% first pages will have pagestyle plain too

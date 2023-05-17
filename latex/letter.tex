@@ -1,0 +1,50 @@
+\documentclass[version=last,paper=A4,foldmarks=true,fontsize=12pt,parskip=full,fromalign=right,
+	fromphone=true,
+	fromfax=false,
+	fromemail=true,
+	fromurl=false,
+]{scrlttr2}
+
+\usepackage{style} % DIN5008 style
+
+\input{author}
+\input{footer}
+
+\begin{document}
+
+% Date
+\setkomavar{date}{\today}
+% Headline
+\setkomavar{subject}{Lorem ipsum}
+
+\setkomavar{customer}[\customername]{DE-112233}
+\setkomavar{yourref}[\yourrefname]{REF NUMBER}
+\setkomavar{yourmail}[\yourmailname]{1. April 2018}
+
+% Recipient
+\begin{letter}{
+    Muster GmbH\\
+    Gewerbestraße 9\\
+    98765 Musterstadt
+}
+
+% Comment line below to switch to German
+%\selectlanguage{english}
+
+\opening{Lorem ipsum dolor sit amet.}
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+
+\closing{Mit freundlichen Grüßen}
+%\ps PS: TEXT.
+
+% Attachments:
+\setkomavar*{enclseparator}{\lang{english}{Attachment(s)}{Anlage(n)}}
+\encl{Taxi receipts}
+
+% Mailing List:
+\cc{Party A, Party B}
+
+\end{letter}
+
+\end{document}
